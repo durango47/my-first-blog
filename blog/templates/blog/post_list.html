@@ -3,10 +3,18 @@
         <title>Alohapia Blog</title>
     </head>
     <body>
-        <div>
+      {{ posts }}
             <h1><a href="/">Alohapia Blog</a></h1>
-        </div>
-
+      {{ posts }}
+      <QuerySet [<Post: My second post>, <Post: My first post>]>
+        {% for post in posts %}
+            <div>
+                <p>published: {{ post.published_date }}</p>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
+        
         <div>
             <p>published: 3.11.2019, 12:14</p>
             <h2><a href="">My first post</a></h2>
